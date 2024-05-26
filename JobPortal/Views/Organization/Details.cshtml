@@ -1,0 +1,37 @@
+﻿@model JobPortal.Models.OrganizationViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card bg-secondary">
+    <h1 class="card-title ml-2">Details</h1>
+    <div class="card-body">
+        <h4>OrganizationViewModel</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactNo)
+            </dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-danger ml-3">Back to List</a>
+    </div>
+</div>

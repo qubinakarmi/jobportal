@@ -1,0 +1,53 @@
+﻿@model JobPortal.Models.JobViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Jobs</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card bg-secondary">
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label text-white">Title</label>
+                        <input asp-for="Title" class="form-control" placeholder="Enter job title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label text-white">Description</label>
+                        <textarea asp-for="Description" class="form-control" placeholder="Enter job description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OrganizationName" class="control-label text-white">Organization</label>
+                        <select asp-for="OrganizationId" class="form-control">
+                            <option value="0">--SELECT--</option>
+                            @foreach (var item in ViewBag.Organizations)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="OrganizationName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary my-2" />
+                        <a asp-action="Index" class="btn btn-danger my-2">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

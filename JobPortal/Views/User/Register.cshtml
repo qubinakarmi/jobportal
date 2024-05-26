@@ -1,0 +1,51 @@
+﻿@model JobPortal.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card bg-secondary text-white">
+                <div class="card-header">
+                    <h1>Register User</h1>
+                </div>
+                <div class="card-body">
+                    <h4>User</h4>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form asp-action="Register">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="UserName" class="control-label"></label>
+                                    <input asp-for="UserName" class="form-control" />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password" class="control-label"></label>
+                                    <input asp-for="Password" type="password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group py-2">
+                                    <input type="submit" value="Register" class="btn btn-primary btn-block" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a asp-action="Register" class=" text-white">Already Signed Up?Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
